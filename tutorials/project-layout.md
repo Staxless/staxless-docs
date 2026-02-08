@@ -22,7 +22,7 @@ staxless/
 │   └── kong-gateway/       # API Gateway (port 8000)
 ├── docker/compose/         # Docker configs
 ├── environments/           # Env files
-└── .infrastructure/        # Terraform (production)
+└── .staxless.yml           # Deployment config
 ```
 
 ---

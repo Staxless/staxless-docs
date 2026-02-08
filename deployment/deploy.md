@@ -33,7 +33,7 @@ What you'll need:
 
 | Category | Secrets |
 |----------|---------|
-| Infrastructure | `DIGITALOCEAN_TOKEN`, `DO_MANAGER_IP` |
+| Infrastructure | `DIGITALOCEAN_TOKEN`, `DO_SPACES_ACCESS_KEY`, `DO_SPACES_SECRET_KEY`, `SSH_PRIVATE_KEY`, `SSH_FINGERPRINT`, `MANAGER_IP` |
 | OAuth | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` |
 | Payments | `STRIPE_PRIVATE_KEY`, `STRIPE_WEBHOOK_SECRET` |
 | Email | `MAILGUN_API_KEY` |
@@ -59,31 +59,24 @@ staxless prod deploy
 
 ---
 
-## Deployment Modes
+## Deployment Actions
 
-Configured in `.github/workflows/deploy.yml`:
+Triggered via `.github/workflows/deploy.yml` (uses [`staxless/staxless-deploy`](https://github.com/staxless/staxless-deploy)):
 
-| Mode | When to use |
-|------|-------------|
-| `initial-deployment` | First time infrastructure |
-| `rolling-update` | Normal updates (default on push) |
-| `deploy-new-service` | Adding a new microservice |
-| `destroy` | Tear it all down |
+| Action | When to use |
+|--------|-------------|
+| `initial-deploy` | First time infrastructure + services |
+| `update-services` | Rolling updates with automatic rollback |
+| `add-service` | Adding a new microservice |
+| `destroy` | Graceful shutdown + tear down infrastructure |
 
 ---
 
-## Infrastructure (Terraform)
+## Infrastructure
 
-In `.infrastructure/`:
+Infrastructure is managed by Terraform inside `staxless/staxless-deploy`. The `initial-deploy` action provisions VPC, droplets, firewall, and Swarm cluster on DigitalOcean automatically.
 
-```bash
-cd .infrastructure
-terraform init
-terraform plan
-terraform apply
-```
-
-Creates VPC, droplets, firewall, and state backend on DigitalOcean.
+Configuration can be customized via `.staxless.yml` in your project root or by passing inputs to the reusable workflows.
 
 ---
 
