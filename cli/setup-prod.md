@@ -36,6 +36,7 @@ The command configures these GitHub secrets:
 | `GITHUB_CLIENT_SECRET` | GitHub OAuth secret |
 | `GOOGLE_CLIENT_ID` | Google OAuth client ID |
 | `GOOGLE_CLIENT_SECRET` | Google OAuth secret |
+| `GHCR_TOKEN` | Optional — GitHub PAT for container registry (only if org restricts Actions) |
 
 ---
 

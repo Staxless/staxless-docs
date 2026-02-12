@@ -64,6 +64,7 @@ Set via `staxless setup:prod` which adds them as GitHub Secrets.
 | `MAILGUN_API_KEY` | Email delivery |
 | `CLOUDFLARE_TUNNEL_TOKEN` | Secure ingress |
 | `PAYLOAD_SECRET` | CMS encryption |
+| `GHCR_TOKEN` | Container registry auth (optional) |
 
 ---
 
