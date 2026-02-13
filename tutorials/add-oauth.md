@@ -17,8 +17,8 @@ GOOGLE_CLIENT_ID=xxx.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=GOCSPX-xxx
 GOOGLE_REDIRECT_URI=http://localhost:8000/oauth/google/callback
 
-GITHUB_CLIENT_ID=xxx
-GITHUB_CLIENT_SECRET=xxx
+GH_OAUTH_CLIENT_ID=xxx
+GH_OAUTH_CLIENT_SECRET=xxx
 ```
 
 Restart and the login buttons work.

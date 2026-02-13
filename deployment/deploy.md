@@ -35,7 +35,7 @@ What you'll need:
 |----------|---------|
 | Infrastructure | `DIGITALOCEAN_TOKEN`, `DO_SPACES_ACCESS_KEY`, `DO_SPACES_SECRET_KEY`, `SSH_PRIVATE_KEY`, `SSH_FINGERPRINT`, `MANAGER_IP` |
 | Registry | `GHCR_TOKEN` (optional — only if your org restricts GitHub Actions package creation) |
-| OAuth | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` |
+| OAuth | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GH_OAUTH_CLIENT_ID`, `GH_OAUTH_CLIENT_SECRET` |
 | Payments | `STRIPE_PRIVATE_KEY`, `STRIPE_WEBHOOK_SECRET` |
 | Email | `MAILGUN_API_KEY` |
 | Cloudflare | `CLOUDFLARE_TUNNEL_TOKEN` |

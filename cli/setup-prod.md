@@ -32,8 +32,8 @@ The command configures these GitHub secrets:
 | `STRIPE_PRIVATE_KEY` | Stripe secret key |
 | `STRIPE_WEBHOOK_SECRET` | Stripe webhook signing secret |
 | `MAILGUN_API_KEY` | Mailgun API key |
-| `GITHUB_CLIENT_ID` | GitHub OAuth app ID |
-| `GITHUB_CLIENT_SECRET` | GitHub OAuth secret |
+| `GH_OAUTH_CLIENT_ID` | GitHub OAuth app ID |
+| `GH_OAUTH_CLIENT_SECRET` | GitHub OAuth secret |
 | `GOOGLE_CLIENT_ID` | Google OAuth client ID |
 | `GOOGLE_CLIENT_SECRET` | Google OAuth secret |
 | `GHCR_TOKEN` | Optional — GitHub PAT for container registry (only if org restricts Actions) |

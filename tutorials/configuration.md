@@ -27,8 +27,8 @@ GOOGLE_CLIENT_SECRET=GOCSPX-xxx
 GOOGLE_REDIRECT_URI=http://localhost:8000/oauth/google/callback
 
 # OAuth - GitHub
-GITHUB_CLIENT_ID=xxx
-GITHUB_CLIENT_SECRET=xxx
+GH_OAUTH_CLIENT_ID=xxx
+GH_OAUTH_CLIENT_SECRET=xxx
 
 # Stripe
 STRIPE_PRIVATE_KEY=sk_test_xxx
@@ -57,8 +57,8 @@ Set via `staxless setup:prod` which adds them as GitHub Secrets.
 | `GOOGLE_CLIENT_ID` | Google OAuth |
 | `GOOGLE_CLIENT_SECRET` | Google OAuth |
 | `GOOGLE_REDIRECT_URI` | Must be production URL |
-| `GITHUB_CLIENT_ID` | GitHub OAuth |
-| `GITHUB_CLIENT_SECRET` | GitHub OAuth |
+| `GH_OAUTH_CLIENT_ID` | GitHub OAuth |
+| `GH_OAUTH_CLIENT_SECRET` | GitHub OAuth |
 | `STRIPE_PRIVATE_KEY` | Live key (`sk_live_...`) |
 | `STRIPE_WEBHOOK_SECRET` | Production webhook secret |
 | `MAILGUN_API_KEY` | Email delivery |
