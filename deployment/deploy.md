@@ -69,7 +69,7 @@ Triggered via `.github/workflows/deploy.yml` (uses [`staxless/staxless-deploy`](
 | Action | When to use |
 |--------|-------------|
 | `initial-deploy` | First time infrastructure + services |
-| `update-services` | Rolling updates with automatic rollback |
+| `rolling-update` | Rolling updates with auto-detect and convergence verification |
 | `add-service` | Adding a new microservice |
 | `destroy` | Graceful shutdown + tear down infrastructure |
 
