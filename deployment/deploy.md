@@ -64,7 +64,7 @@ staxless prod deploy
 
 ## Deployment Actions
 
-Triggered via `.github/workflows/deploy.yml` (uses [`staxless/staxless-deploy`](https://github.com/staxless/staxless-deploy)):
+Triggered via `.github/workflows/deploy.yml` (the "Rolling Update" workflow, uses [`staxless/staxless-deploy`](https://github.com/staxless/staxless-deploy)):
 
 | Action | When to use |
 |--------|-------------|
