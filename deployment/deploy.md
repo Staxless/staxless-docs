@@ -11,8 +11,8 @@ Check these boxes:
 - [ ] GitHub Secrets configured
 - [ ] Stripe webhooks point to production domain
 - [ ] OAuth redirect URIs updated
-- [ ] Domain and DNS configured
-- [ ] Cloudflare tunnel set up
+- [ ] Domain and DNS configured (automated if Cloudflare secrets are set)
+- [ ] Cloudflare API token and Account ID configured
 - [ ] MongoDB Atlas cluster ready
 
 ---
@@ -38,7 +38,7 @@ What you'll need:
 | OAuth | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GH_OAUTH_CLIENT_ID`, `GH_OAUTH_CLIENT_SECRET` |
 | Payments | `STRIPE_PRIVATE_KEY`, `STRIPE_WEBHOOK_SECRET` |
 | Email | `MAILGUN_API_KEY` |
-| Cloudflare | `CLOUDFLARE_TUNNEL_TOKEN` |
+| Cloudflare | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` |
 
 ---
 
@@ -119,13 +119,19 @@ git push origin main
 
 ## Cloudflare Tunnel
 
-Secure ingress without exposing ports:
+Secure ingress without exposing ports — **fully automated** during initial deploy.
 
-1. Create tunnel in Cloudflare dashboard
-2. Copy the token
-3. Add as `CLOUDFLARE_TUNNEL_TOKEN`
+**What you provide:**
+- `CLOUDFLARE_API_TOKEN` — Custom token with Account:Cloudflare Tunnel:Edit, Zone:DNS:Edit, Zone:Zone:Read permissions
+- `CLOUDFLARE_ACCOUNT_ID` — Found in the Cloudflare dashboard sidebar
 
-Runs as a service in Swarm.
+**What the automation does:**
+1. Creates a Cloudflare Tunnel (or reuses existing)
+2. Configures DNS records for `domain.com` and `api.domain.com`
+3. Sets tunnel ingress rules (frontend + Kong API Gateway)
+4. Stores the `CLOUDFLARE_TUNNEL_TOKEN` as a Docker secret and GitHub repo secret
+
+Runs as a service in Swarm. The entire flow is idempotent — safe to re-run.
 
 ---
 

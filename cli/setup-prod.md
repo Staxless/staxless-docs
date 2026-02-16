@@ -36,7 +36,13 @@ The command configures these GitHub secrets:
 | `GH_OAUTH_CLIENT_SECRET` | GitHub OAuth secret |
 | `GOOGLE_CLIENT_ID` | Google OAuth client ID |
 | `GOOGLE_CLIENT_SECRET` | Google OAuth secret |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token for tunnel + DNS automation |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID |
 | `GHCR_TOKEN` | Optional — GitHub PAT for container registry (only if org restricts Actions) |
+
+The command also prompts for a `DOMAIN` variable (stored as a GitHub repo variable, not a secret) if not already set. This is used by the Cloudflare tunnel automation.
+
+> **Note:** `CLOUDFLARE_TUNNEL_TOKEN` and `DATABASE_URL` are auto-managed by the deployment workflow and not prompted during setup.
 
 ---
 

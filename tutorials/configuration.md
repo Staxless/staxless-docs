@@ -62,7 +62,8 @@ Set via `staxless setup:prod` which adds them as GitHub Secrets.
 | `STRIPE_PRIVATE_KEY` | Live key (`sk_live_...`) |
 | `STRIPE_WEBHOOK_SECRET` | Production webhook secret |
 | `MAILGUN_API_KEY` | Email delivery |
-| `CLOUDFLARE_TUNNEL_TOKEN` | Secure ingress |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare tunnel + DNS automation |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account identifier |
 | `PAYLOAD_SECRET` | CMS encryption |
 | `GHCR_TOKEN` | Container registry auth (optional) |
 

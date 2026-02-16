@@ -155,7 +155,9 @@ services:
 
 ### Cloudflare Setup
 
-1. **Tunnel** — Services aren't directly exposed. Cloudflare connects to your infrastructure.
+Cloudflare tunnel and DNS are **automatically configured** during initial deploy when `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are set.
+
+1. **Tunnel** — Services aren't directly exposed. Cloudflare connects to your infrastructure via an auto-created tunnel.
 2. **WAF** — Blocks common attacks (SQLi, XSS, etc.)
 3. **DDoS** — Absorbs volumetric attacks
 4. **Bot Management** — Filters malicious bots
@@ -179,7 +181,7 @@ services:
 ## Pre-Production Checklist
 
 **Infrastructure:**
-- [ ] Cloudflare tunnel configured
+- [ ] Cloudflare API token and Account ID configured (tunnel is auto-created)
 - [ ] MongoDB Atlas with strong credentials
 - [ ] IP restrictions on database
 - [ ] GitHub Secrets populated
