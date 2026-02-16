@@ -173,6 +173,30 @@ docker system prune -a
 
 ---
 
+### Cloudflare Error 1033 / Tunnel Timeouts
+
+cloudflared authenticates but can't reach the Cloudflare edge? Look for these in logs:
+
+```
+ERR Failed to dial a quic connection error="timeout: no recent network activity"
+WRN most likely your machine/network is getting its egress UDP to port 7844 blocked
+```
+
+**Fix:** Outbound port 7844 (TCP + UDP) must be open. Check:
+
+1. **DigitalOcean firewall** — must have outbound rules for port 7844 TCP + UDP to `0.0.0.0/0` and `::/0`
+2. **UFW on the droplet** — `ufw allow out 7844/tcp` and `ufw allow out 7844/udp`
+
+These are configured automatically by `staxless-deploy` Terraform and cloud-init. If you modified firewall rules manually, ensure port 7844 is included.
+
+After fixing, restart the cloudflared service:
+
+```bash
+docker service update --force staxless_cloudflared
+```
+
+---
+
 ## Reset Everything
 
 When nothing else works:

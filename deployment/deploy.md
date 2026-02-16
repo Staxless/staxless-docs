@@ -133,6 +133,10 @@ Secure ingress without exposing ports — **fully automated** during initial dep
 
 Runs as a service in Swarm. The entire flow is idempotent — safe to re-run.
 
+**Firewall requirements:**
+
+cloudflared requires egress on port **7844** (TCP + UDP) to connect to the Cloudflare edge. This is configured automatically in the DigitalOcean firewall and UFW rules by `staxless-deploy`. If you see Cloudflare Error 1033 or timeout errors in cloudflared logs, verify that outbound port 7844 is open.
+
 ---
 
 ## MongoDB Atlas
