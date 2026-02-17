@@ -187,7 +187,7 @@ WRN most likely your machine/network is getting its egress UDP to port 7844 bloc
 1. **DigitalOcean firewall** — must have outbound rules for port 7844 TCP + UDP to `0.0.0.0/0` and `::/0`
 2. **UFW on the droplet** — `ufw allow out 7844/tcp` and `ufw allow out 7844/udp`
 
-These are configured automatically by `staxless-deploy` Terraform and cloud-init. If you modified firewall rules manually, ensure port 7844 is included.
+These are configured automatically by `staxless-workflows` Terraform and cloud-init. If you modified firewall rules manually, ensure port 7844 is included.
 
 After fixing, restart the cloudflared service:
 

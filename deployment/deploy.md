@@ -64,7 +64,7 @@ staxless prod deploy
 
 ## Deployment Actions
 
-Triggered via `.github/workflows/deploy.yml` (the "Rolling Update" workflow, uses [`staxless/staxless-deploy`](https://github.com/staxless/staxless-deploy)):
+Triggered via `.github/workflows/deploy.yml` (the "Rolling Update" workflow, uses [`staxless/staxless-workflows`](https://github.com/staxless/staxless-workflows)):
 
 | Action | When to use |
 |--------|-------------|
@@ -77,7 +77,7 @@ Triggered via `.github/workflows/deploy.yml` (the "Rolling Update" workflow, use
 
 ## Infrastructure
 
-Infrastructure is managed by Terraform inside `staxless/staxless-deploy`. The `initial-deploy` action provisions VPC, droplets, firewall, and Swarm cluster on DigitalOcean automatically.
+Infrastructure is managed by Terraform inside `staxless/staxless-workflows`. The `initial-deploy` action provisions VPC, droplets, firewall, and Swarm cluster on DigitalOcean automatically.
 
 Configuration can be customized via `.staxless.yml` in your project root or by passing inputs to the reusable workflows.
 
@@ -135,7 +135,7 @@ Runs as a service in Swarm. The entire flow is idempotent — safe to re-run.
 
 **Firewall requirements:**
 
-cloudflared requires egress on port **7844** (TCP + UDP) to connect to the Cloudflare edge. This is configured automatically in the DigitalOcean firewall and UFW rules by `staxless-deploy`. If you see Cloudflare Error 1033 or timeout errors in cloudflared logs, verify that outbound port 7844 is open.
+cloudflared requires egress on port **7844** (TCP + UDP) to connect to the Cloudflare edge. This is configured automatically in the DigitalOcean firewall and UFW rules by `staxless-workflows`. If you see Cloudflare Error 1033 or timeout errors in cloudflared logs, verify that outbound port 7844 is open.
 
 ---
 
